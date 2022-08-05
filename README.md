@@ -11,5 +11,5 @@ implement a caesar cipher that takes in a string and the shift factor and then o
 -Initialize a variable that will hold "a".ord ascii <br>
 -Implement equation that will shift word base on shift. Making sure it loops from 'a'..'z', turning it back into a char. Equation is ((word.ord - first + shift) % alphabet_range + first ).chr <br>
 ### caesar_cipher
--Function is called with two parameters, first is string, second is shift
--grab string, downcase, split into individual letters, map to transform array, call shift_number, then join individual letters back into string.
+-Function is called with two parameters, first is string, second is shift <br>
+-grab string, downcase, split into individual letters, map to transform array, call shift_number, then join individual letters back into string.<br>
