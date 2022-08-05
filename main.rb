@@ -1,16 +1,21 @@
-#iterate through a to z, we could do ('a'..'z')
-#shifting is basicallt moving forward or backwards depending on the "shift"
-#We could split the array by doing. split("") and shifting doing letters depending on "shift"
-
-def shift_number(word, shift)
-    alphabet_range = ('a'..'z').count
-    first = 'a'.ord #97
-    ((word.ord - first + shift) % alphabet_range + first).chr
-end
-
 def caesar_cipher(string, shift)
-    string.downcase.split("").map {|word| shift_number(word, shift)}.join
+    alphabet_range = ('a'..'z').count
+    results = ""
+    upper_a = "A".ord
+    lower_a = "a".ord
+
+    string.split("").map do |char|
+        if char.ord.between?(65, 90)
+            base = char.ord - upper_a
+            rotation = ((base + shift) % 26 + upper_a).chr
+            results += rotation
+        elsif char.ord.between?(97, 122)
+            base = char.ord - lower_a
+            rotation = ((base + shift) % 26 + lower_a).chr
+            results += rotation
+        end
+    end
+    results
 end
 
-caesar_cipher("Cat", 3)
-
+p caesar_cipher("Hello, are you okay?", 3)
